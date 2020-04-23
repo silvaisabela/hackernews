@@ -21,10 +21,19 @@ const list = [{
 },
 ];
 class App extends Component {
+  constructor(props){
+    // Super ele repassa as props passada para o constructor ao pai Component
+    super(props);
+
+    this.state = {
+      list,
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        {list.map(item =>
+        {this.state.list.map(item =>
           <div key={item.objectID}>
             <span><a href={item.url}>{item.title}</a></span>
             <span>{item.author}</span>
